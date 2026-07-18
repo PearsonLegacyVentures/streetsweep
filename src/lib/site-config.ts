@@ -1,40 +1,21 @@
-/**
- * Site Configuration
- * Change these values to customize the starter for any brand.
- */
+export const company = {
+  name: "ClearRoad Bahamas",
+  tagline: "Clean roads. Clear sites. Verified service.",
+  description: "Professional street sweeping for roads, commercial properties, construction sites and public spaces across New Providence.",
+  url: "https://clearroadbahamas.com",
+  phone: "+1 242 000 0000",
+  whatsapp: "+1 242 000 0000",
+  email: "operations@clearroadbahamas.com",
+  address: "Address to be confirmed, Nassau, Bahamas",
+  serviceArea: "New Providence, Bahamas",
+  social: { linkedin: "#", instagram: "#" },
+};
 
 export const siteConfig = {
-  name: "Studio",
-  tagline: "Strategy. Design. Results.",
-  description: "We help ambitious brands create exceptional digital experiences that drive growth and build lasting value.",
-  url: "https://example.com",
-  ogImage: "/og-image.jpg",
+  ...company,
   nav: [
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Work", href: "/work" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/" }, { label: "Services", href: "/services" }, { label: "Industries", href: "/industries" },
+    { label: "Equipment", href: "/equipment" }, { label: "How It Works", href: "/how-it-works" }, { label: "Track Record", href: "/track-record" },
+    { label: "Procurement", href: "/procurement" }, { label: "About", href: "/about" },
   ],
-  footer: {
-    company: [
-      { label: "About", href: "/about" },
-      { label: "Services", href: "/services" },
-      { label: "Work", href: "/work" },
-      { label: "Contact", href: "/contact" },
-    ],
-    resources: [
-      { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
-    ],
-    legal: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
-    social: {
-      twitter: "#",
-      linkedin: "#",
-      instagram: "#",
-    },
-  },
 };
