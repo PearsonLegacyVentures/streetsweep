@@ -1,4 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
-@tailwind base; @tailwind components; @tailwind utilities;
-@layer base { :root { --background: 42 24% 93%; --foreground: 180 5% 11%; --card: 42 24% 96%; --card-foreground:180 5% 11%; --popover:42 24% 96%; --popover-foreground:180 5% 11%; --primary:180 5% 11%; --primary-foreground:42 24% 96%; --secondary:180 5% 18%; --secondary-foreground:42 24% 96%; --muted:42 18% 88%; --muted-foreground:42 5% 37%; --accent:45 81% 54%; --accent-foreground:180 5% 9%; --destructive:0 84% 60%; --destructive-foreground:0 0% 100%; --border:42 12% 75%; --input:42 12% 75%; --ring:45 81% 54%; --radius:0; } *{@apply border-border} html{scroll-behavior:smooth} body{@apply bg-background text-foreground antialiased; font-family:Inter,system-ui,sans-serif} h1,h2,h3,h4{font-family:'Barlow Condensed',Inter,sans-serif;letter-spacing:-.02em} a,button,input,select,textarea{@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2} } @layer utilities {.content-container{@apply mx-auto max-w-7xl px-5 sm:px-7 lg:px-10}.narrow-container{@apply mx-auto max-w-3xl px-5 sm:px-7}.section-padding{@apply py-16 sm:py-20 lg:py-24}.text-eyebrow{@apply text-xs font-bold uppercase tracking-widest text-accent}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 24% 93%;
+    --foreground: 180 5% 11%;
+    --card: 42 24% 96%;
+    --card-foreground: 180 5% 11%;
+    --popover: 42 24% 96%;
+    --popover-foreground: 180 5% 11%;
+    --primary: 180 5% 11%;
+    --primary-foreground: 42 24% 96%;
+    --secondary: 180 5% 18%;
+    --secondary-foreground: 42 24% 96%;
+    --muted: 42 18% 88%;
+    --muted-foreground: 42 5% 37%;
+    --accent: 45 81% 54%;
+    --accent-foreground: 180 5% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 42 12% 75%;
+    --input: 42 12% 75%;
+    --ring: 45 81% 54%;
+    --radius: 0;
+  }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  h1,h2,h3,h4 {
+    font-family: 'Barlow Condensed', Inter, sans-serif;
+    letter-spacing: -.02em;
+  }
+  a,button,input,select,textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+  ::selection {
+    background: #e8bd28;
+    color: #171919;
+  }
+}
+
+@layer utilities {
+  .content-container { @apply mx-auto max-w-7xl px-5 sm:px-7 lg:px-10; }
+  .narrow-container { @apply mx-auto max-w-3xl px-5 sm:px-7; }
+  .section-padding { @apply py-16 sm:py-20 lg:py-24; }
+  .text-eyebrow { @apply text-xs font-bold uppercase tracking-[.2em] text-accent; }
+  .road-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, transparent 0 48%, rgba(232,189,40,.14) 48% 52%, transparent 52%);
+    background-size: 52px 52px, 52px 52px, 100% 100%;
+  }
+}
+
+@keyframes sweeperFloat {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,-8px,0); }
+}
+
+.sweeper-float {
+  animation: sweeperFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+details > summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .sweeper-float { animation: none; }
+}
+
+@media (max-width: 639px) {
+  body { padding-bottom: 72px; }
+}
