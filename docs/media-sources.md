@@ -1,20 +1,33 @@
 # Media sources
 
-These manufacturer product images are used as visual references for the compact electric street-sweeper category being considered for ClearRoad Bahamas. They should eventually be replaced or supplemented by original ClearRoad Bahamas equipment photography. Dulevo branding has not been removed or altered, and the website must not imply ClearRoad currently owns these exact machines.
+StreetSweeper Bahamas uses manufacturer equipment media to explain the compact street-sweeper category being considered for launch. Manufacturer imagery is reference material only and must not imply ownership of the exact machines shown.
 
-## Product render source URLs
+The tropical parking-lot image is used as an illustrative property setting for the interactive before/after concept. It is not represented as a completed StreetSweeper Bahamas client project.
 
-- `public/images/equipment/dulevo-850.png` — intended local Dulevo 850 manufacturer product render path. Source: https://www.dulevo.com/media/542j4lkj/microsoftteams-image.png
-- `public/images/equipment/dulevo-dzero2-white.png` — intended local Dulevo D.zero² white electric sweeper manufacturer product render path. Source: https://www.dulevo.com/media/tpqh2vev/foto-prodotto.png
-- `public/images/equipment/dulevo-dzero2-red.png` — intended local Dulevo D.zero² red electric sweeper manufacturer product render path. Source: https://www.dulevo.com/media/3mcgp2n3/d-zero2s3.png
+## Manufacturer product render source URLs
+
+- Dulevo 850 manufacturer render: https://www.dulevo.com/media/542j4lkj/microsoftteams-image.png
+- Dulevo D.zero² white manufacturer render: https://www.dulevo.com/media/tpqh2vev/foto-prodotto.png
+- Dulevo D.zero² red manufacturer render: https://www.dulevo.com/media/3mcgp2n3/d-zero2s3.png
+
+## Manufacturer action photography
+
+- Dulevo D.zero² action image: https://www.dulevo.com/media/rtbjxcvo/_dsc9050.jpg
+- Dulevo D.zero² urban action image: https://www.dulevo.com/media/apvfdtuf/_dsc9206.jpg
+- Dulevo D.zero² street action image: https://www.dulevo.com/media/k4ikh1zl/_dsc9254.jpg
+
+## Illustrative property setting
+
+- Tropical parking-lot photography via Unsplash: https://images.unsplash.com/photo-1675143781525-14ec6d988d2e?auto=format&fit=crop&fm=jpg&q=82&w=1800
+
+The before/after component uses the same property photograph on both sides. The “before” state adds a visual dirt/debris overlay, while the “after” state removes that overlay and introduces a manufacturer sweeper render. This is intentionally labelled as an illustrative comparison.
 
 ## Video
 
 - Official Dulevo YouTube demonstration, “The new Dulevo D.zero2”: https://www.youtube.com/watch?v=hkD3nMrWuMw
 
-## Notes
+## Production notes
 
-- Additional close-up views on the site are CSS crops of the downloaded manufacturer product renders above, used to show brushes and cabin details without altering branding or implying ClearRoad ownership.
-- No unrelated stock, warehouse, construction-worker or industrial-interior imagery is used in the upgraded pages.
-
-- Download note: the implementation environment blocked direct binary downloads from `www.dulevo.com` with a proxy 403, so the local files should be replaced with the exact manufacturer PNG downloads from the source URLs before production publishing.
+- Replace or supplement concept media with original StreetSweeper Bahamas photography after equipment is purchased and the first local jobs are completed.
+- Do not remove manufacturer branding from equipment reference media.
+- Do not describe manufacturer-reference images as completed StreetSweeper Bahamas work.
