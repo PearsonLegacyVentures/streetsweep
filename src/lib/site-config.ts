@@ -1,7 +1,7 @@
 export const company = {
-  name: "ClearRoad Bahamas",
-  tagline: "Street sweeping for Nassau properties and work sites.",
-  description: "Professional street sweeping in Nassau and New Providence for commercial properties, construction sites, communities, roads and event areas.",
+  name: "StreetSweeper Bahamas",
+  tagline: "Mechanical street sweeping for Nassau properties and work sites.",
+  description: "Street sweeping in Nassau and New Providence for commercial properties, construction sites, communities, roads and event areas.",
   url: "https://clearroadbahamas.com",
   phone: "+1 242 000 0000",
   whatsapp: "+1 242 000 0000",
