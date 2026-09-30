@@ -12,11 +12,16 @@ export default function Contact(){
   return <PageLayout>
     <Seo title="Request a Street Sweeping Site Assessment | StreetSweeper Bahamas" description="Request a street sweeping site assessment for a commercial property, construction site, private road or event area in New Providence." />
 
-    <section className="relative min-h-[520px] overflow-hidden bg-[#071724] text-white">
-      <img src={media.heroNassau} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover"/>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,23,36,.97),rgba(7,23,36,.84)_56%,rgba(7,23,36,.35))]"/>
-      <div className="content-container relative flex min-h-[520px] items-center py-16">
+    <section className="relative overflow-hidden bg-[#071724] text-white">
+      <div className="absolute inset-0 road-grid opacity-25"/>
+      <div className="content-container relative grid min-h-[560px] gap-10 py-14 lg:grid-cols-[.78fr_1.22fr] lg:items-center">
         <div className="max-w-3xl"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Request a site assessment</p><h1 className="mt-5 text-6xl font-bold leading-[.86] sm:text-8xl">SHOW US WHAT NEEDS TO BE SWEPT.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-[#D4DFE4]">Send the location, surface type, frequency and a few details. Photos help us understand access and debris before the next conversation.</p></div>
+        <div className="relative min-h-[390px] overflow-hidden rounded-[30px]">
+          <img src={media.tropicalLot} alt="Tropical commercial parking area used as a service setting reference" className="absolute inset-0 h-full w-full object-cover"/>
+          <div className="absolute inset-0 bg-[#071724]/18"/>
+          <img src={media.dzeroWhite} alt="" aria-hidden="true" className="absolute bottom-[2%] right-[2%] h-[62%] w-[65%] object-contain drop-shadow-[0_18px_28px_rgba(7,23,36,.38)]"/>
+          <span className="absolute left-5 top-5 rounded-full bg-[#071724]/90 px-4 py-2 text-[10px] font-black uppercase tracking-[.18em]">Illustrative site composition</span>
+        </div>
       </div>
     </section>
 
