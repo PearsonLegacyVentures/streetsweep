@@ -1,7 +1,8 @@
 export const media = {
-  heroNassau: "/images/generated/hero-nassau.jpg",
-  beforeNassau: "/images/generated/nassau-before.jpg",
-  afterNassau: "/images/generated/nassau-after.jpg",
+  tropicalLot: "https://images.unsplash.com/photo-1675143781525-14ec6d988d2e?auto=format&fit=crop&fm=jpg&q=82&w=1800",
+  heroAction: "https://www.dulevo.com/media/rtbjxcvo/_dsc9050.jpg",
+  actionUrban: "https://www.dulevo.com/media/apvfdtuf/_dsc9206.jpg",
+  actionStreet: "https://www.dulevo.com/media/k4ikh1zl/_dsc9254.jpg",
   dzeroWhite: "https://www.dulevo.com/media/tpqh2vev/foto-prodotto.png",
   dzeroRed: "https://www.dulevo.com/media/3mcgp2n3/d-zero2s3.png",
   dulevo850: "https://www.dulevo.com/media/542j4lkj/microsoftteams-image.png",
