@@ -1,75 +1,54 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Clock3, Repeat2 } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Seo } from "@/components/Seo";
 import { media, services as serviceItems } from "@/data/siteContent";
 
-const details = [
-  ["Commercial Properties", "Parking lots, shopping centres, hotels, warehouses and business compounds.", ["Loose sand", "Litter", "Surface dirt"], "One-time or recurring"],
-  ["Construction Sites", "Paved access roads and surrounding surfaces affected by active works.", ["Tracked dirt", "Loose aggregate", "Dust buildup"], "Project-based or recurring"],
-  ["Roads & Communities", "Private roads, developments, shared curbs and common paved areas.", ["Sand", "Leaves", "Roadside debris"], "Monthly or site-specific"],
-  ["Events & Venues", "Parking areas, entrances and routes around concerts, festivals and sporting events.", ["Litter", "Dust", "Post-event debris"], "Pre-event, post-event or both"],
-  ["Post-Storm Cleanup", "Selected paved areas affected by unexpected surface debris after severe weather.", ["Loose debris", "Sand", "Light surface waste"], "On request, after site review"],
-];
+const schedules = ["One-time cleanups", "Recurring routes", "Day or off-hour windows"];
 
 export default function Services() {
   return (
     <PageLayout>
-      <Seo
-        title="Street Sweeping Services Nassau | ClearRoad Bahamas"
-        description="One-time and recurring street sweeping for commercial properties, construction sites, parking lots, communities and event areas across New Providence."
-      />
+      <Seo title="Street Sweeping Services Nassau | StreetSweeper Bahamas" description="Street sweeping services in Nassau for commercial properties, construction sites, private roads, communities and events across New Providence." />
 
-      <section className="relative overflow-hidden bg-[#111313] text-white">
-        <div className="absolute inset-0 road-grid opacity-30" />
-        <div className="content-container relative grid min-h-[560px] gap-10 py-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-eyebrow">Street sweeping services</p>
-            <h1 className="mt-5 text-5xl font-bold leading-[.92] sm:text-6xl lg:text-7xl">Street Sweeping Services in Nassau</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#cbc7be]">One-time and scheduled sweeping for commercial properties, construction sites, private roads, communities and event areas across New Providence.</p>
-            <Link to="/request-assessment" className="mt-8 inline-flex items-center gap-2 bg-accent px-6 py-4 text-sm font-bold text-[#171919]">
-              Request a Site Assessment <ArrowRight className="h-4 w-4" />
-            </Link>
+      <section className="relative min-h-[620px] overflow-hidden bg-[#071724] text-white">
+        <img src={media.heroNassau} alt="Illustrative street sweeper operating in Nassau" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,23,36,.96),rgba(7,23,36,.74)_54%,rgba(7,23,36,.2))]" />
+        <div className="content-container relative flex min-h-[620px] items-center py-16">
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Street sweeping services</p>
+            <h1 className="mt-5 text-6xl font-bold leading-[.86] sm:text-8xl">THE RIGHT SWEEP FOR THE SITE.</h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#D4DFE4]">One-time and scheduled sweeping for commercial properties, construction sites, private roads, communities and event areas across New Providence.</p>
+            <Link to="/request-assessment" className="mt-8 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#FF6038] px-7 text-sm font-black">Request a Sweep <ArrowRight className="h-4 w-4" /></Link>
           </div>
-          <img src={media.dzeroWhite} alt="Compact street sweeper used as reference for street sweeping services in Nassau" className="sweeper-float min-h-[360px] w-full object-contain" />
         </div>
       </section>
 
-      <section className="bg-[#f2eee5] py-16 sm:py-20">
+      <section className="bg-[#F3EFE6] py-20 sm:py-24">
         <div className="content-container">
-          <div className="max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#8a6b08]">Choose the job</p>
-            <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Sweeping built around the site.</h2>
-            <p className="mt-4 leading-7 text-[#595852]">The service changes depending on the surface, debris, access and operating window. We review those details before quoting the work.</p>
+          <div className="grid gap-8 lg:grid-cols-[.62fr_1.38fr] lg:items-end">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#FF6038]">Choose the outcome</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] text-[#071724] sm:text-7xl">Not every property needs the same route.</h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-[#4B5A63]">We review access, surface, debris and operating hours first. Then the service is built around the property instead of forcing every site into one package.</p>
           </div>
 
-          <div className="mt-10 grid gap-5">
-            {details.map(([title, copy, debris, timing], i) => (
-              <article key={title as string} className="grid overflow-hidden border border-black/10 bg-white lg:grid-cols-[.7fr_1.3fr]">
-                <div className="relative min-h-[260px] bg-[#dbe6e4] p-6">
-                  <span className="absolute left-5 top-5 z-10 bg-[#171919] px-3 py-2 text-xs font-bold text-white">0{i + 1}</span>
-                  <img src={i % 2 ? media.dulevo850 : media.dzeroWhite} alt={`${title} street sweeping equipment reference`} className="h-full min-h-[230px] w-full object-contain" loading={i ? "lazy" : undefined} />
+          <div className="mt-12 grid gap-5">
+            {serviceItems.map((item, i) => (
+              <article key={item.title} className="group overflow-hidden rounded-[28px] bg-white shadow-[0_18px_70px_rgba(7,23,36,.08)] lg:grid lg:grid-cols-[.78fr_1.22fr]">
+                <div className={`relative min-h-[300px] overflow-hidden ${i===0?"bg-[#12CFC0]":i===1?"bg-[#FF6038]":i===2?"bg-[#F4C84A]":"bg-[#3F6BFF]"}`}>
+                  <img src={i===0?media.afterNassau:i===1?media.dzeroWhite:i===2?media.dulevo850:media.dzeroRed} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.04]" />
+                  {i>0 && <div className="absolute inset-0 bg-[#071724]/10" />}
+                  <span className="absolute left-5 top-5 rounded-full bg-[#071724] px-3 py-2 text-xs font-black text-white">0{i+1}</span>
                 </div>
-                <div className="p-6 sm:p-8 lg:p-10">
-                  <h3 className="text-3xl font-bold sm:text-4xl">{title}</h3>
-                  <p className="mt-4 max-w-2xl leading-7 text-[#595852]">{copy}</p>
-
-                  <div className="mt-7 grid gap-6 border-t border-black/10 pt-6 sm:grid-cols-2">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[.16em] text-[#8a6b08]">Common debris</p>
-                      <div className="mt-3 grid gap-2 text-sm">
-                        {(debris as string[]).map((x) => <span key={x} className="flex items-center gap-2"><Check className="h-4 w-4" /> {x}</span>)}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[.16em] text-[#8a6b08]">Typical schedule</p>
-                      <p className="mt-3 text-sm font-semibold">{timing}</p>
-                    </div>
+                <div className="p-7 sm:p-10">
+                  <h3 className="text-4xl font-bold text-[#071724] sm:text-5xl">{item.title}</h3>
+                  <p className="mt-4 max-w-2xl text-lg leading-8 text-[#4B5A63]">{item.copy}</p>
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {schedules.map((x) => <span key={x} className="rounded-full bg-[#EDF1F2] px-4 py-2 text-xs font-bold text-[#071724]">{x}</span>)}
                   </div>
-
-                  <Link to="/request-assessment" className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
-                    Discuss this service <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <Link to="/request-assessment" className="mt-7 inline-flex items-center gap-2 text-sm font-black text-[#FF6038]">Discuss this service <ArrowRight className="h-4 w-4" /></Link>
                 </div>
               </article>
             ))}
@@ -77,37 +56,15 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-[#171919] py-16 text-white sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-center">
+      <section className="bg-[#071724] py-20 text-white sm:py-24">
+        <div className="content-container grid gap-10 lg:grid-cols-[.72fr_1.28fr]">
           <div>
-            <p className="text-eyebrow">Simple service options</p>
-            <h2 className="mt-4 text-4xl font-bold sm:text-5xl">One-off cleanup or recurring route.</h2>
-            <p className="mt-5 leading-7 text-[#c8c4bc]">The goal is straightforward: clean the right area at the right time without adding unnecessary complexity.</p>
+            <p className="text-xs font-black uppercase tracking-[.2em] text-[#F4C84A]">Simple scheduling</p>
+            <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Clean once. Or stop thinking about it every month.</h2>
           </div>
-          <div className="grid gap-px bg-white/10 sm:grid-cols-3">
-            {[
-              ["Routine Sweep", "Recurring parking lots, roads and commercial properties."],
-              ["Construction Sweep", "Cleanup around active works and paved access routes."],
-              ["ClearRoad Cleanup", "Events, storms and one-off surface debris."],
-            ].map(([title, copy]) => (
-              <div key={title} className="bg-[#1d201f] p-6">
-                <h3 className="text-2xl font-bold">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#c8c4bc]">{copy}</p>
-              </div>
-            ))}
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[[Clock3,"One-time","A single cleanup for a property, project or event."],[Repeat2,"Recurring","Build sweeping into the property's maintenance routine."],[Check,"Site reviewed","Confirm access, surface and debris before the service is booked."]].map(([Icon,title,copy])=>{const I=Icon as typeof Clock3;return <div key={title as string} className="rounded-[24px] border border-white/10 bg-white/[.05] p-6"><I className="h-5 w-5 text-[#12CFC0]" /><h3 className="mt-8 text-2xl font-bold">{title as string}</h3><p className="mt-3 text-sm leading-6 text-[#B8C8D0]">{copy as string}</p></div>})}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-accent py-16 text-[#171919]">
-        <div className="content-container flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="text-5xl font-bold">Need a paved area swept?</h2>
-            <p className="mt-4 max-w-2xl">Send the location, surface type and a short description. We will review the site and prepare the next step.</p>
-          </div>
-          <Link to="/request-assessment" className="inline-flex shrink-0 items-center gap-2 bg-[#171919] px-6 py-4 font-bold text-white">
-            Request a Site Assessment <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </section>
     </PageLayout>
