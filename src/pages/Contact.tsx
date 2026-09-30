@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Seo } from "@/components/Seo";
 import { company } from "@/lib/site-config";
@@ -33,7 +33,10 @@ export default function Contact(){
           <div className="mt-8 grid gap-3">
             {[["01","Location","Where is the road, lot or work site?"],["02","Surface","What needs sweeping and what builds up there?"],["03","Timing","One-time, recurring, daytime or off-hour?"]].map(([n,t,c])=><div key={t} className="rounded-[20px] bg-white p-5 shadow-[0_12px_40px_rgba(7,23,36,.06)]"><span className="text-xs font-black text-[#3F6BFF]">{n}</span><h3 className="mt-4 text-xl font-bold">{t}</h3><p className="mt-2 text-sm leading-6 text-[#52616a]">{c}</p></div>)}
           </div>
-          <div className="mt-8 grid gap-4 border-t border-[#071724]/10 pt-6 text-sm"><p className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 text-[#FF6038]"/>{company.serviceArea}</p><p className="flex gap-3"><Mail className="h-4 w-4 shrink-0 text-[#FF6038]"/>{company.email}</p></div>
+          <div className="mt-8 border-t border-[#071724]/10 pt-6 text-sm">
+            <p className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 text-[#FF6038]"/>{company.serviceArea}</p>
+            <p className="mt-4 text-xs leading-5 text-[#667680]">Direct phone, WhatsApp and email details will be published before public launch.</p>
+          </div>
         </aside>
 
         <div className="overflow-hidden rounded-[30px] bg-white p-6 shadow-[0_24px_80px_rgba(7,23,36,.1)] sm:p-9 lg:p-11">
