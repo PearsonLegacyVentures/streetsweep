@@ -1,43 +1,55 @@
 import { useState } from "react";
+import { MoveHorizontal } from "lucide-react";
+import { media } from "@/data/siteContent";
 
 export function BeforeAfter() {
-  const [position, setPosition] = useState(58);
+  const [position, setPosition] = useState(52);
 
   return (
-    <div className="relative overflow-hidden bg-[#d8d3c8]">
-      <div className="relative aspect-[16/9] min-h-[280px]">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(140deg,#8c8273_0%,#6d665d_42%,#383b39_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[repeating-linear-gradient(12deg,rgba(255,255,255,.06)_0_2px,transparent_2px_18px)]" />
-          <div className="absolute left-[12%] top-[55%] h-2 w-36 rotate-6 bg-[#c4ad78]/80" />
-          <div className="absolute left-[31%] top-[67%] h-3 w-24 -rotate-3 bg-[#b59a67]/70" />
-          <div className="absolute left-[45%] top-[48%] h-2 w-16 rotate-12 bg-[#b7a170]/80" />
-          <span className="absolute left-5 top-5 bg-[#171919]/90 px-3 py-2 text-xs font-bold uppercase tracking-[.18em] text-white">Before</span>
-        </div>
+    <figure className="overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_28px_90px_rgba(8,24,38,.14)]">
+      <div className="relative aspect-[16/10] min-h-[320px] overflow-hidden bg-[#cfc8b9]">
+        <img
+          src={media.beforeNassau}
+          alt="Illustrative Nassau-style parking area with sand, leaves and loose debris before sweeping"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
         <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100-position}% 0 0)` }}>
-          <div className="absolute inset-0 bg-[linear-gradient(140deg,#a5a29a_0%,#80827d_48%,#3f4240_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[repeating-linear-gradient(12deg,rgba(255,255,255,.03)_0_2px,transparent_2px_18px)]" />
-          <span className="absolute left-5 top-5 bg-accent px-3 py-2 text-xs font-bold uppercase tracking-[.18em] text-[#171919]">After</span>
+          <img
+            src={media.afterNassau}
+            alt="Illustrative Nassau-style parking area after mechanical street sweeping"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 w-px bg-white" style={{ left: `${position}%` }}>
-          <div className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-accent text-sm font-bold text-[#171919] shadow-lg">↔</div>
+        <span className="absolute left-4 top-4 z-20 rounded-full bg-[#081826]/92 px-4 py-2 text-[10px] font-black uppercase tracking-[.2em] text-white">Before</span>
+        <span className="absolute right-4 top-4 z-20 rounded-full bg-[#12CFC0] px-4 py-2 text-[10px] font-black uppercase tracking-[.2em] text-[#081826]">After</span>
+
+        <div className="pointer-events-none absolute inset-y-0 z-10 w-[2px] bg-white shadow-[0_0_16px_rgba(0,0,0,.35)]" style={{ left: `${position}%` }}>
+          <div className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-[#FF6038] text-white shadow-xl">
+            <MoveHorizontal className="h-5 w-5" />
+          </div>
         </div>
 
         <input
-          aria-label="Compare dirty and cleaned paved surface"
+          aria-label="Compare the before and after street sweeping visualization"
           type="range"
-          min="10"
-          max="90"
+          min="8"
+          max="92"
           value={position}
-          onChange={(e)=>setPosition(Number(e.target.value))}
-          className="absolute inset-x-4 bottom-4 z-10 w-[calc(100%-2rem)] accent-[#e8bd28]"
+          onChange={(e) => setPosition(Number(e.target.value))}
+          className="absolute inset-0 z-30 h-full w-full cursor-ew-resize opacity-0"
         />
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-[#081826]/70 to-transparent px-5 pb-5 pt-16 text-white">
+          <p className="text-sm font-bold">Drag across the image to compare.</p>
+        </div>
       </div>
-      <div className="flex items-center justify-between border-t border-black/10 bg-[#f4f0e7] px-5 py-3 text-xs font-bold uppercase tracking-[.16em] text-[#4b4b47]">
-        <span>Loose sand + debris</span><span>Mechanically swept surface</span>
-      </div>
-    </div>
+
+      <figcaption className="flex flex-col gap-2 bg-[#F3EFE6] px-5 py-4 text-xs leading-5 text-[#52616a] sm:flex-row sm:items-center sm:justify-between">
+        <span className="font-bold text-[#081826]">What mechanical sweeping is meant to change.</span>
+        <span>Illustrative Nassau-style visualization — not a completed client project.</span>
+      </figcaption>
+    </figure>
   );
 }
