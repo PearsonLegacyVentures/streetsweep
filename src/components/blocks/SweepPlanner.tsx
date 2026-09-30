@@ -41,7 +41,7 @@ export function SweepPlanner() {
 
     if (site === "event") {
       return {
-        title: "ClearRoad Cleanup",
+        title: "Site Cleanup",
         copy: "Best fit for parking areas, entrances and paved routes that need to be prepared or restored around an event.",
         note: "Pre-event, post-event or both can be reviewed.",
         color: "#3F6BFF",
