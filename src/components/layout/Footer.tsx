@@ -30,8 +30,7 @@ export function Footer() {
             <h2 className="text-xs font-black uppercase tracking-[.18em] text-[#F4C84A]">Service area</h2>
             <div className="mt-5 grid gap-3 text-sm text-[#D8E1E5]">
               <p>{company.serviceArea}</p>
-              <a href={`mailto:${company.email}`}>{company.email}</a>
-              <p className="text-xs leading-5 text-[#7E929C]">Phone and WhatsApp details will be added before public launch.</p>
+              <p className="text-xs leading-5 text-[#7E929C]">Contact details will be published before public launch. Use the site-assessment form to structure an enquiry.</p>
             </div>
           </div>
         </div>
