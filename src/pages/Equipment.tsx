@@ -22,10 +22,11 @@ export default function Equipment(){
           <p className="mt-5 max-w-xl text-[10px] leading-4 text-[#718995]">Manufacturer equipment shown for reference. Final operating model and specifications will be confirmed before deployment.</p>
         </div>
 
-        <div className="relative min-h-[460px] overflow-hidden rounded-[32px] bg-[#12CFC0]">
-          <div className="absolute left-6 top-6 z-10 rounded-full bg-[#071724] px-4 py-2 text-[10px] font-black uppercase tracking-[.18em] text-white">Compact ride-on category</div>
-          <img src={media.dzeroWhite} alt="Compact electric street sweeper manufacturer reference" className="absolute inset-0 h-full w-full object-contain p-8"/>
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#071724]/70 to-transparent px-6 pb-6 pt-20"><p className="text-sm font-bold">Small footprint. Dedicated brush system. Built for paved surfaces.</p></div>
+        <div className="relative min-h-[480px] overflow-hidden rounded-[32px] bg-[#12CFC0]">
+          <img src={media.actionUrban} alt="Compact electric street sweeper operating in an urban environment" className="absolute inset-0 h-full w-full object-cover"/>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071724]/75 via-transparent to-transparent"/>
+          <div className="absolute left-6 top-6 z-10 rounded-full bg-[#071724]/90 px-4 py-2 text-[10px] font-black uppercase tracking-[.18em] text-white">Compact ride-on category</div>
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-20"><p className="text-xl font-bold">Small footprint. Dedicated brush system. Built for paved surfaces.</p></div>
         </div>
       </div>
     </section>
@@ -52,13 +53,13 @@ export default function Equipment(){
     <section className="bg-[#12CFC0] py-20 text-[#071724] sm:py-24">
       <div className="content-container grid gap-10 lg:grid-cols-[.62fr_1.38fr] lg:items-center">
         <div><p className="text-xs font-black uppercase tracking-[.2em]">Watch it operate</p><h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Brushes down. Debris up.</h2><p className="mt-6 leading-7">Manufacturer footage shows the basic operating principle more clearly than a list of features ever could.</p></div>
-        <div className="overflow-hidden rounded-[30px] border-[6px] border-[#071724] bg-[#071724]"><VideoEmbed title="Compact street sweeper manufacturer demonstration" poster={media.heroNassau} caption="Manufacturer demonstration footage shown for reference."/></div>
+        <div className="overflow-hidden rounded-[30px] border-[6px] border-[#071724] bg-[#071724]"><VideoEmbed title="Compact street sweeper manufacturer demonstration" poster={media.heroAction} caption="Manufacturer demonstration footage shown for equipment reference."/></div>
       </div>
     </section>
 
     <section className="bg-[#071724] py-20 text-white sm:py-24">
       <div className="content-container">
-        <div className="grid gap-4 md:grid-cols-3">{[media.dzeroWhite,media.dulevo850,media.dzeroRed].map((src,i)=><figure key={src} className="group overflow-hidden rounded-[24px] bg-white p-5"><img src={src} alt={["White compact electric street sweeper manufacturer reference","Compact ride-on street sweeper manufacturer reference","Red compact electric street sweeper manufacturer reference"][i]} className="h-72 w-full object-contain transition duration-500 group-hover:scale-[1.04]"/><figcaption className="mt-4 border-t border-black/10 pt-3 text-xs font-black uppercase tracking-[.14em] text-[#52616a]">Reference view 0{i+1}</figcaption></figure>)}</div>
+        <div className="grid gap-4 md:grid-cols-3">{[media.actionUrban,media.heroAction,media.actionStreet].map((src,i)=><figure key={src} className="group overflow-hidden rounded-[24px] bg-white"><img src={src} alt="Compact street sweeper manufacturer action reference" className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.04]"/><figcaption className="border-t border-black/10 px-5 py-4 text-xs font-black uppercase tracking-[.14em] text-[#52616a]">Action reference 0{i+1}</figcaption></figure>)}</div>
         <div className="mt-10 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{equipmentCapabilities.map(x=><div key={x} className="flex min-h-14 items-center gap-3 rounded-xl border border-white/10 bg-white/[.05] px-4 text-sm font-bold"><Check className="h-4 w-4 text-[#12CFC0]"/>{x}</div>)}</div>
         <div className="mt-10 flex gap-4 rounded-[24px] bg-white/[.05] p-6"><Info className="h-5 w-5 shrink-0 text-[#F4C84A]"/><p className="text-sm leading-6 text-[#B8C8D0]">StreetSweeper Bahamas does not currently represent that it owns the exact Dulevo models shown. These images communicate the compact sweeper category being considered. Final supplier, model and capability remain subject to confirmation.</p></div>
       </div>
