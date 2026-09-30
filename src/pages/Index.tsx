@@ -1,41 +1,57 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Clock3, Construction, MapPin, Moon, Play, Repeat2, Sparkles } from "lucide-react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Seo } from "@/components/Seo";
 import { VideoEmbed } from "@/components/blocks/VideoEmbed";
 import { BeforeAfter } from "@/components/blocks/BeforeAfter";
-import { ServiceSelector } from "@/components/blocks/ServiceSelector";
 import { SweepPlanner } from "@/components/blocks/SweepPlanner";
 import { EquipmentHotspots } from "@/components/blocks/EquipmentHotspots";
 import { company } from "@/lib/site-config";
-import { equipmentCapabilities, industries, media } from "@/data/siteContent";
+import { benefits, equipmentCapabilities, media } from "@/data/siteContent";
 
 const faq = [
-  ["What areas does ClearRoad Bahamas serve?", "ClearRoad is preparing to serve Nassau and New Providence. Each job is reviewed by location, access, surface and debris type."],
-  ["What types of properties can be swept?", "Commercial parking lots, construction access roads, private communities, event areas and selected paved roads can be reviewed."],
-  ["Do you offer one-time and recurring sweeping?", "Yes. Service can be quoted as one-time work or a recurring schedule based on the property."],
-  ["Can sweeping happen outside normal business hours?", "Where site access allows, daytime, evening and off-hour service windows can be discussed."],
-  ["How is pricing determined?", "Pricing depends on surface area, debris level, access, timing, frequency and the equipment required for the site."],
+  ["Where will StreetSweeper Bahamas operate?", "The initial service area is Nassau and New Providence. Each request is reviewed for location, access, surface and equipment fit."],
+  ["What can you sweep?", "Commercial parking lots, construction access roads, private communities, event areas and selected paved roads can be reviewed."],
+  ["Can I book one cleanup instead of a contract?", "Yes. The service is being structured for both one-time work and recurring schedules."],
+  ["Can sweeping happen outside business hours?", "Where property access allows, daytime, evening and off-hour service windows can be discussed."],
+  ["How will pricing work?", "Pricing will depend on surface area, debris level, access, timing, frequency and the equipment required. The site is reviewed before a quote is confirmed."],
 ];
 
-const tickerItems = [
-  "Parking lots",
-  "Construction sites",
-  "Private roads",
-  "Communities",
-  "Hotels",
-  "Event areas",
-  "Commercial compounds",
+const serviceBlocks = [
+  {
+    eyebrow: "Commercial",
+    title: "Parking lots that look maintained before customers arrive.",
+    copy: "For shopping centres, hotels, warehouses, offices and business compounds that need a cleaner paved surface without making manual sweeping a constant job.",
+    color: "#12CFC0",
+    text: "#071724",
+    image: media.afterNassau,
+  },
+  {
+    eyebrow: "Construction",
+    title: "Tracked dirt should not become the street's problem.",
+    copy: "Sweep paved site entrances and surrounding access routes affected by loose sand, dirt and light aggregate.",
+    color: "#FF6038",
+    text: "#FFFFFF",
+    image: media.dzeroWhite,
+  },
+  {
+    eyebrow: "Private roads + communities",
+    title: "Put recurring road care on a schedule.",
+    copy: "For private roads, shared curbs, community entrances and common paved areas across New Providence.",
+    color: "#F4C84A",
+    text: "#071724",
+    image: media.dulevo850,
+  },
 ];
 
-const industryColors = ["#FF6038", "#12CFC0", "#F4C84A", "#3F6BFF", "#E34DA4", "#F3EFE6"];
+const ticker = ["PARKING LOTS", "CONSTRUCTION SITES", "PRIVATE ROADS", "HOTELS", "COMMUNITIES", "EVENT AREAS"];
 
 export default function Index() {
   return (
     <PageLayout>
       <Seo
-        title="Street Sweeping Nassau | ClearRoad Bahamas"
-        description="Street sweeping in Nassau for commercial properties, construction sites, parking lots, private roads and event areas. Request a ClearRoad site assessment."
+        title="Street Sweeping Nassau | StreetSweeper Bahamas"
+        description="Mechanical street sweeping in Nassau for commercial properties, construction sites, parking lots, private roads and event areas across New Providence."
       />
 
       <script
@@ -44,102 +60,72 @@ export default function Index() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
-              {
-                "@type": "LocalBusiness",
-                name: company.name,
-                areaServed: company.serviceArea,
-                telephone: company.phone,
-                email: company.email,
-                url: company.url,
-              },
-              {
-                "@type": "Service",
-                name: "Street sweeping Nassau",
-                provider: { "@type": "LocalBusiness", name: company.name },
-                areaServed: "New Providence, Bahamas",
-              },
-              {
-                "@type": "FAQPage",
-                mainEntity: faq.map(([q, a]) => ({
-                  "@type": "Question",
-                  name: q,
-                  acceptedAnswer: { "@type": "Answer", text: a },
-                })),
-              },
+              { "@type": "LocalBusiness", name: company.name, areaServed: company.serviceArea, email: company.email, url: company.url },
+              { "@type": "Service", name: "Street sweeping Nassau", provider: { "@type": "LocalBusiness", name: company.name }, areaServed: "New Providence, Bahamas" },
+              { "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
             ],
           }),
         }}
       />
 
-      <section className="relative overflow-hidden bg-[#081826] text-white">
-        <div className="absolute inset-0 road-grid opacity-45" />
-        <div className="content-container relative grid min-h-[700px] items-center gap-10 py-12 lg:grid-cols-[.9fr_1.1fr] lg:py-20">
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-3 border border-white/15 bg-white/5 px-3 py-2">
+      <section className="relative isolate min-h-[760px] overflow-hidden bg-[#071724] text-white">
+        <img
+          src={media.heroNassau}
+          alt="Illustrative street sweeper operating in a Nassau-style waterfront setting"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,23,36,.96)_0%,rgba(7,23,36,.86)_36%,rgba(7,23,36,.28)_68%,rgba(7,23,36,.12)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#071724] to-transparent" />
+
+        <div className="content-container relative z-10 flex min-h-[760px] items-center py-16">
+          <div className="max-w-[760px]">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-[#071724]/60 px-4 py-2 backdrop-blur">
               <span className="clearroad-pulse h-2.5 w-2.5 rounded-full bg-[#12CFC0]" />
-              <span className="text-[10px] font-bold uppercase tracking-[.2em] text-[#B7C7CF]">Street sweeping · New Providence</span>
+              <span className="text-[10px] font-black uppercase tracking-[.22em] text-[#D8E3E8]">Mechanical street sweeping · Nassau</span>
             </div>
 
-            <h1 className="mt-6 max-w-3xl text-5xl font-bold leading-[.86] sm:text-6xl lg:text-[5.9rem]">
-              Cleaner roads.
+            <h1 className="mt-7 text-[3.8rem] font-bold leading-[.84] tracking-[-.04em] sm:text-[5.6rem] lg:text-[7rem]">
+              CLEANER
               <br />
-              Cleaner sites.
+              <span className="text-[#12CFC0]">STREETS.</span>
               <br />
-              <span className="text-[#FF6038]">One machine.</span>
+              BETTER <span className="text-[#F4C84A]">FIRST</span>
+              <br />
+              IMPRESSIONS.
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-7 text-[#C9D4DA] sm:text-lg sm:leading-8">
-              Mechanical street sweeping for commercial properties, construction sites, private roads, communities and event areas across New Providence.
+            <p className="mt-8 max-w-xl text-base leading-7 text-[#D6E0E5] sm:text-lg sm:leading-8">
+              StreetSweeper Bahamas is being built to handle paved-area cleanup for commercial properties, construction sites, private roads, communities and event spaces across New Providence.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link className="group inline-flex min-h-14 items-center justify-center gap-2 bg-[#FF6038] px-6 text-sm font-bold text-white" to="/request-assessment">
-                Request a Site Assessment <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link to="/request-assessment" className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#FF6038] px-7 text-sm font-black text-white shadow-[0_12px_40px_rgba(255,96,56,.28)]">
+                Request a Sweep <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link className="inline-flex min-h-14 items-center justify-center border border-[#12CFC0] px-6 text-sm font-bold text-[#8BE8DE]" to="/services">
-                View Services
-              </Link>
+              <a href="#difference" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 text-sm font-bold text-white backdrop-blur hover:bg-white/10">
+                See the difference
+              </a>
             </div>
 
-            <div className="mt-8 grid max-w-xl grid-cols-3 gap-2 text-center">
-              <div className="bg-[#12CFC0] px-3 py-4 text-[#08201E]">
-                <span className="block text-xl font-black">ONE-TIME</span>
-                <span className="text-[10px] font-bold uppercase tracking-[.14em]">Cleanup</span>
-              </div>
-              <div className="bg-[#F4C84A] px-3 py-4 text-[#161B22]">
-                <span className="block text-xl font-black">RECURRING</span>
-                <span className="text-[10px] font-bold uppercase tracking-[.14em]">Routes</span>
-              </div>
-              <div className="bg-[#3F6BFF] px-3 py-4 text-white">
-                <span className="block text-xl font-black">PROJECT</span>
-                <span className="text-[10px] font-bold uppercase tracking-[.14em]">Sweeping</span>
-              </div>
+            <div className="mt-10 grid max-w-2xl grid-cols-1 gap-2 sm:grid-cols-3">
+              {[
+                [MapPin, "Nassau + New Providence"],
+                [Repeat2, "One-time + recurring"],
+                [Clock3, "Flexible service windows"],
+              ].map(([Icon, label]) => {
+                const I = Icon as typeof MapPin;
+                return <div key={label as string} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#071724]/60 px-4 py-3 text-xs font-bold text-[#D8E3E8] backdrop-blur"><I className="h-4 w-4 text-[#12CFC0]" />{label as string}</div>;
+              })}
             </div>
-          </div>
 
-          <div className="relative min-h-[390px] lg:min-h-[590px]">
-            <div className="absolute right-0 top-[8%] h-[78%] w-[84%] bg-[#12CFC0]" />
-            <div className="absolute bottom-[3%] left-[2%] h-[34%] w-[42%] bg-[#F4C84A]" />
-            <div className="absolute right-[1%] top-[4%] z-[2] bg-[#3F6BFF] px-4 py-3 text-right text-white">
-              <span className="block text-[9px] font-black uppercase tracking-[.2em]">Equipment category</span>
-              <span className="mt-1 block text-sm font-bold">Compact ride-on sweeper</span>
-            </div>
-            <img
-              src={media.dzeroWhite}
-              alt="Compact electric street sweeper for street sweeping services in Nassau"
-              className="sweeper-float relative z-[3] h-full min-h-[390px] w-full object-contain object-center lg:min-h-[590px]"
-            />
-            <div className="absolute bottom-[7%] left-[3%] z-[4] max-w-[280px] bg-[#FF6038] p-4 text-white">
-              <p className="text-xs font-black uppercase tracking-[.16em]">Built for practical sites</p>
-              <p className="mt-2 text-sm leading-6">Parking areas, private roads, compounds and construction access routes.</p>
-            </div>
+            <p className="mt-5 max-w-lg text-[10px] leading-4 text-[#94A8B2]">Hero image is an illustrative Nassau-style service visualization. Original project photography will replace concept imagery after launch.</p>
           </div>
         </div>
       </section>
 
       <section className="overflow-hidden bg-[#FF6038] py-4 text-white">
         <div className="clearroad-ticker flex items-center gap-8 whitespace-nowrap px-4">
-          {[...tickerItems, ...tickerItems].map((item, i) => (
+          {[...ticker, ...ticker].map((item, i) => (
             <span key={`${item}-${i}`} className="flex items-center gap-8 text-sm font-black uppercase tracking-[.18em]">
               {item}<span className="text-[#F4C84A]">●</span>
             </span>
@@ -147,180 +133,164 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="bg-[#F4C84A] py-16 text-[#161B22] sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.68fr_1.32fr] lg:items-center">
-          <div>
-            <p className="text-xs font-black uppercase tracking-[.18em]">The problem</p>
-            <h2 className="mt-4 text-5xl font-bold leading-[.92] sm:text-6xl">Dirt builds up. Your property still has to look maintained.</h2>
-            <p className="mt-5 max-w-lg leading-7">
-              Mechanical sweeping gives property teams and contractors a faster way to cover larger paved areas when sand, tracked dirt and loose debris start to pile up.
-            </p>
-            <div className="mt-7 grid gap-3 text-sm font-bold">
-              {["Loose sand + litter", "Construction track-out", "Parking-lot buildup"].map((x) => (
-                <div key={x} className="flex items-center gap-3 border-t border-black/20 pt-3">
-                  <Check className="h-4 w-4" /> {x}
+      <section id="difference" className="bg-[#F3EFE6] py-20 sm:py-24">
+        <div className="content-container">
+          <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#FF6038]">The difference is visual</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] text-[#071724] sm:text-7xl">Drag it. See what the service is meant to do.</h2>
+            </div>
+            <div>
+              <p className="max-w-2xl text-lg leading-8 text-[#4B5A63]">Sand, leaves, dust and loose debris accumulate quickly on Bahamian paved surfaces. Mechanical sweeping gives large outdoor areas a practical reset.</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Sand", "Leaves", "Loose dirt", "Light litter", "Tracked material"].map((x) => <span key={x} className="rounded-full bg-[#071724] px-4 py-2 text-xs font-bold text-white">{x}</span>)}
+              </div>
+            </div>
+          </div>
+          <div className="mt-12"><BeforeAfter /></div>
+        </div>
+      </section>
+
+      <section className="bg-[#071724] py-20 text-white sm:py-24">
+        <div className="content-container">
+          <div className="grid gap-8 lg:grid-cols-[.66fr_1.34fr] lg:items-end">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Where we work</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">One service. Very different sites.</h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-[#B8C8D0]">The customer should not have to understand sweeper technology. Show us the site. We review access, surface, debris and timing.</p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {serviceBlocks.map((item, i) => (
+              <article key={item.title} className="group relative min-h-[560px] overflow-hidden rounded-[30px]">
+                <img src={item.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.045]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071724] via-[#071724]/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                  <span className="inline-flex rounded-full px-3 py-2 text-[10px] font-black uppercase tracking-[.18em]" style={{background:item.color,color:item.text}}>{item.eyebrow}</span>
+                  <h3 className="mt-5 text-4xl font-bold leading-[.95]">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-[#D3DDE1]">{item.copy}</p>
+                  <Link to="/request-assessment" className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[#12CFC0]">Discuss this site <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
                 </div>
-              ))}
-            </div>
-          </div>
-          <BeforeAfter />
-        </div>
-      </section>
-
-      <section className="bg-[#081826] py-16 text-white sm:py-20">
-        <div className="content-container">
-          <div className="grid gap-8 lg:grid-cols-[.65fr_1.35fr] lg:items-end">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[.2em] text-[#8BE8DE]">Choose your site</p>
-              <h2 className="mt-4 text-5xl font-bold sm:text-6xl">Same machine. Different job.</h2>
-            </div>
-            <p className="max-w-2xl text-lg leading-8 text-[#C8D3D8]">
-              Dulevo itself organises equipment around intended use and application. We use the same idea here: start with the site, then match the service around access, buildup and schedule.
-            </p>
-          </div>
-          <div className="mt-10">
-            <ServiceSelector />
+                <span className="absolute right-5 top-5 text-5xl font-bold text-white/20">0{i+1}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#12CFC0] py-16 text-[#08201E] sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.68fr_1.32fr] lg:items-center">
+      <section className="bg-[#12CFC0] py-20 text-[#071724] sm:py-24">
+        <div className="content-container grid gap-10 lg:grid-cols-[.62fr_1.38fr] lg:items-center">
           <div>
-            <p className="text-xs font-black uppercase tracking-[.18em]">See it work</p>
-            <h2 className="mt-4 text-5xl font-bold leading-[.92] sm:text-6xl">The machine explains the service better than a paragraph can.</h2>
-            <p className="mt-5 leading-7">
-              Watch how a compact ride-on sweeper moves across paved surfaces, works the brush system and collects loose material.
-            </p>
-            <p className="mt-5 text-xs font-semibold opacity-70">Manufacturer demonstration footage. Final ClearRoad operating equipment may vary.</p>
+            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#071724] text-white"><Play className="h-5 w-5 fill-current" /></span>
+            <p className="mt-7 text-xs font-black uppercase tracking-[.2em]">See the machine work</p>
+            <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">A video explains this business in seconds.</h2>
+            <p className="mt-6 max-w-xl leading-7">Watch the brush system, collection process and manoeuvring of a compact street sweeper in action.</p>
+            <p className="mt-5 text-xs font-semibold opacity-65">Manufacturer demonstration footage. Final StreetSweeper Bahamas operating equipment may vary.</p>
           </div>
-          <div className="border-4 border-[#081826] bg-[#081826] p-2">
-            <VideoEmbed
-              title="Compact electric street sweeper demonstration"
-              poster={media.dzeroWhite}
-              caption="Equipment demonstration shown for reference."
-            />
+          <div className="overflow-hidden rounded-[30px] border-[6px] border-[#071724] bg-[#071724] shadow-[0_28px_90px_rgba(7,23,36,.25)]">
+            <VideoEmbed title="Compact electric street sweeper demonstration" poster={media.heroNassau} caption="Manufacturer demonstration footage shown for equipment reference." />
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F3EFE6] py-16 text-[#081826] sm:py-20">
+      <section className="bg-[#F3EFE6] py-20 text-[#071724] sm:py-24">
         <div className="content-container">
-          <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[.68fr_1.32fr] lg:items-end">
             <div>
-              <p className="text-xs font-black uppercase tracking-[.18em] text-[#FF6038]">Find your fit</p>
-              <h2 className="mt-4 text-5xl font-bold leading-[.92] sm:text-6xl">Three choices. One clearer starting point.</h2>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#3F6BFF]">Build your request</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Tell the site. We narrow the service.</h2>
             </div>
-            <p className="max-w-2xl leading-7 text-[#465661]">
-              Equipment companies like JCB and Caterpillar use guided selectors to help customers narrow down the right machine. Our version helps a property manager narrow down the right ClearRoad service.
-            </p>
+            <p className="max-w-2xl text-lg leading-8 text-[#4B5A63]">Use the planner to describe the type of property, the frequency and the main buildup. It is a starting point, not an automated quote.</p>
           </div>
-          <div className="mt-10">
-            <SweepPlanner />
-          </div>
+          <div className="mt-12"><SweepPlanner /></div>
         </div>
       </section>
 
-      <section className="bg-[#3F6BFF] py-16 text-white sm:py-20">
+      <section className="bg-[#3F6BFF] py-20 text-white sm:py-24">
         <div className="content-container">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <div>
-              <p className="text-xs font-black uppercase tracking-[.18em] text-[#DDE5FF]">Equipment</p>
-              <h2 className="mt-4 text-5xl font-bold leading-[.92] sm:text-6xl">Tap the machine. See what matters.</h2>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#DDE5FF]">Equipment</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Compact enough for real properties. Built to sweep.</h2>
             </div>
             <div>
-              <p className="leading-7 text-[#E4E9FF]">
-                Compact equipment matters because it can fit the scale of parking lots, private roads, business compounds and construction access routes without defaulting to a full-size municipal truck.
-              </p>
-              <Link to="/equipment" className="mt-5 inline-flex min-h-12 items-center gap-2 bg-[#081826] px-5 text-sm font-bold text-white">
-                Explore the equipment <ArrowRight className="h-4 w-4" />
-              </Link>
+              <p className="max-w-2xl text-lg leading-8 text-[#E5E9FF]">The planned equipment category is a compact ride-on sweeper suited to parking lots, private roads, compounds and selected construction access routes.</p>
+              <Link to="/equipment" className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#071724] px-5 text-sm font-black">Explore the equipment <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
 
-          <div className="mt-10">
-            <EquipmentHotspots />
-          </div>
+          <div className="mt-12"><EquipmentHotspots /></div>
 
           <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {equipmentCapabilities.map((x) => (
-              <div key={x} className="flex min-h-14 items-center gap-3 border border-white/25 bg-white/10 px-4 text-sm font-bold">
-                <Check className="h-4 w-4 text-[#F4C84A]" /> {x}
-              </div>
-            ))}
+            {equipmentCapabilities.map((x) => <div key={x} className="flex min-h-14 items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 text-sm font-bold"><Check className="h-4 w-4 text-[#F4C84A]" />{x}</div>)}
           </div>
-          <p className="mt-5 max-w-3xl text-xs leading-5 text-[#DDE5FF]">
-            Equipment shown represents the compact electric street-sweeper category being considered for ClearRoad Bahamas. Final model and specifications remain subject to supplier verification and commissioning.
-          </p>
+          <p className="mt-5 max-w-3xl text-xs leading-5 text-[#DDE5FF]">Manufacturer equipment is shown as a reference category only. Final model, capability and specifications will be confirmed before deployment.</p>
         </div>
       </section>
 
-      <section className="bg-[#081826] py-16 text-white sm:py-20">
+      <section className="bg-[#071724] py-20 text-white sm:py-24">
         <div className="content-container">
-          <div className="grid gap-8 lg:grid-cols-[.6fr_1.4fr]">
+          <div className="grid gap-10 lg:grid-cols-[.58fr_1.42fr]">
             <div>
-              <p className="text-xs font-black uppercase tracking-[.2em] text-[#8BE8DE]">Where we fit</p>
-              <h2 className="mt-4 text-5xl font-bold leading-[.92] sm:text-6xl">Built for active properties and work sites.</h2>
+              <p className="text-xs font-black uppercase tracking-[.2em] text-[#F4C84A]">Why book it</p>
+              <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Less cleanup headache. A clearer plan.</h2>
             </div>
-
             <div className="grid gap-3 sm:grid-cols-2">
-              {industries.map(([title, copy], i) => {
-                const color = industryColors[i % industryColors.length];
-                const darkText = color === "#12CFC0" || color === "#F4C84A" || color === "#F3EFE6";
-                return (
-                  <Link
-                    key={title}
-                    to="/industries"
-                    className="group min-h-[240px] p-6 transition-transform hover:-translate-y-1"
-                    style={{ background: color, color: darkText ? "#081826" : "#FFFFFF" }}
-                  >
-                    <span className="text-xs font-black opacity-65">0{i + 1}</span>
-                    <h3 className="mt-10 text-3xl font-bold">{title}</h3>
-                    <p className="mt-3 text-sm leading-6 opacity-85">{copy}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.14em]">
-                      See use case <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </Link>
-                );
-              })}
+              {benefits.map(([title, copy], i) => (
+                <article key={title} className="rounded-[24px] border border-white/10 bg-white/[.045] p-6 transition hover:bg-white/[.08]">
+                  <span className="text-xs font-black text-[#12CFC0]">0{i+1}</span>
+                  <h3 className="mt-8 text-3xl font-bold">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#B8C8D0]">{copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 grid overflow-hidden rounded-[30px] bg-[#FF6038] lg:grid-cols-[1.05fr_.95fr]">
+            <div className="p-8 sm:p-10 lg:p-12">
+              <Construction className="h-8 w-8 text-[#F4C84A]" />
+              <h3 className="mt-8 text-5xl font-bold leading-[.92]">Built in Nassau. Focused on a problem Nassau businesses can see.</h3>
+              <p className="mt-5 max-w-xl leading-7 text-white/85">StreetSweeper Bahamas is a founder-led service being developed by Amar Pearson around straightforward scheduling, suitable equipment and commercial relationships.</p>
+            </div>
+            <div className="relative min-h-[330px]">
+              <img src={media.heroNassau} alt="Illustrative Nassau-style street sweeping scene" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF6038] via-transparent to-transparent lg:hidden" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F3EFE6] py-16 text-[#081826] sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.58fr_1.42fr]">
+      <section className="bg-white py-20 text-[#071724] sm:py-24">
+        <div className="content-container grid gap-10 lg:grid-cols-[.55fr_1.45fr]">
           <div>
-            <p className="text-xs font-black uppercase tracking-[.18em] text-[#FF6038]">Questions</p>
-            <h2 className="mt-4 text-5xl font-bold sm:text-6xl">Before we sweep.</h2>
+            <p className="text-xs font-black uppercase tracking-[.2em] text-[#FF6038]">Questions</p>
+            <h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Before we sweep.</h2>
           </div>
-          <div className="grid gap-2">
+          <div className="grid gap-1">
             {faq.map(([q, a], i) => (
-              <details className="group border-b-2 border-[#081826]/15 py-5" key={q}>
+              <details className="group border-b-2 border-[#071724]/10 py-5" key={q}>
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold">
-                  <span><span className="mr-4 text-xs text-[#FF6038]">0{i + 1}</span>{q}</span>
+                  <span><span className="mr-4 text-xs text-[#FF6038]">0{i+1}</span>{q}</span>
                   <span className="text-2xl text-[#3F6BFF] transition group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-4 max-w-2xl pl-9 text-sm leading-6 text-[#465661]">{a}</p>
+                <p className="mt-4 max-w-2xl pl-9 text-sm leading-6 text-[#4B5A63]">{a}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#FF6038] py-16 text-white sm:py-20">
-        <div className="absolute right-[-4%] top-1/2 hidden h-[135%] w-[46%] -translate-y-1/2 opacity-20 lg:block">
-          <img src={media.dzeroRed} alt="" aria-hidden="true" className="h-full w-full object-contain" />
-        </div>
+      <section className="relative overflow-hidden bg-[#F4C84A] py-20 text-[#071724] sm:py-24">
+        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#12CFC0] opacity-70 blur-[2px]" />
+        <div className="absolute -bottom-36 right-[18%] h-72 w-72 rounded-full bg-[#FF6038] opacity-85" />
         <div className="content-container relative">
-          <Sparkles className="h-8 w-8 text-[#F4C84A]" />
-          <h2 className="mt-5 max-w-3xl text-5xl font-bold leading-[.92] sm:text-7xl">Tell us what needs to be swept.</h2>
-          <p className="mt-5 max-w-xl text-lg leading-8">Send the location, surface type and preferred schedule. We will review the site and prepare the next step.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link to="/request-assessment" className="bg-[#081826] px-6 py-4 text-center font-bold text-white">Request a Site Assessment</Link>
-            <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="border-2 border-white px-6 py-4 text-center font-bold">
-              <Phone className="mr-2 inline h-4 w-4" /> Call ClearRoad
-            </a>
+          <Sparkles className="h-8 w-8" />
+          <h2 className="mt-6 max-w-4xl text-6xl font-bold leading-[.86] sm:text-8xl">SHOW US WHAT NEEDS CLEANING.</h2>
+          <p className="mt-6 max-w-xl text-lg leading-8">Send the location, surface type and preferred schedule. We will review the site and determine the next step.</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link to="/request-assessment" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#071724] px-7 font-black text-white">Request a Sweep <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/services" className="inline-flex min-h-14 items-center justify-center rounded-full border-2 border-[#071724] px-7 font-black">View Services</Link>
           </div>
         </div>
       </section>
