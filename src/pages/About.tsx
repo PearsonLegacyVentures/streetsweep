@@ -9,11 +9,14 @@ export default function About(){
   return <PageLayout>
     <Seo title="About StreetSweeper Bahamas | Nassau Street Sweeping" description="StreetSweeper Bahamas is a founder-led street sweeping business being developed for commercial properties, construction sites and private roads across New Providence." />
 
-    <section className="relative min-h-[620px] overflow-hidden bg-[#071724] text-white">
-      <img src={media.heroNassau} alt="Illustrative Nassau-style street sweeping scene" className="absolute inset-0 h-full w-full object-cover"/>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,23,36,.96),rgba(7,23,36,.75)_58%,rgba(7,23,36,.25))]"/>
-      <div className="content-container relative flex min-h-[620px] items-center py-16">
+    <section className="relative overflow-hidden bg-[#071724] text-white">
+      <div className="content-container grid min-h-[620px] gap-10 py-16 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
         <div className="max-w-3xl"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">About StreetSweeper Bahamas</p><h1 className="mt-5 text-6xl font-bold leading-[.86] sm:text-8xl">START WITH ONE VISIBLE PROBLEM.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-[#D4DFE4]">Give Nassau businesses, contractors and communities a practical mechanical option for keeping paved areas cleaner.</p></div>
+        <div className="relative min-h-[430px] overflow-hidden rounded-[32px]">
+          <img src={media.heroAction} alt="Compact street sweeper operating on a paved route" className="absolute inset-0 h-full w-full object-cover"/>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071724]/70 via-transparent to-transparent"/>
+          <span className="absolute left-5 top-5 rounded-full bg-[#071724]/90 px-4 py-2 text-[10px] font-black uppercase tracking-[.18em]">Equipment category reference</span>
+        </div>
       </div>
     </section>
 
