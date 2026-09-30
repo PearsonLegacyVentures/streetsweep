@@ -5,96 +5,32 @@ import { Seo } from "@/components/Seo";
 import { company } from "@/lib/site-config";
 import { media } from "@/data/siteContent";
 
-export default function About() {
-  return (
-    <PageLayout>
-      <Seo
-        title="About ClearRoad Bahamas | Street Sweeping Nassau"
-        description="ClearRoad Bahamas is a founder-led street sweeping company being built for commercial properties, construction sites, communities and public spaces across New Providence."
-      />
+export default function About(){
+  return <PageLayout>
+    <Seo title="About StreetSweeper Bahamas | Nassau Street Sweeping" description="StreetSweeper Bahamas is a founder-led street sweeping business being developed for commercial properties, construction sites and private roads across New Providence." />
 
-      <section className="relative overflow-hidden bg-[#111313] text-white">
-        <div className="absolute inset-0 road-grid opacity-30" />
-        <div className="content-container relative grid min-h-[560px] gap-10 py-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-eyebrow">About ClearRoad</p>
-            <h1 className="mt-5 text-5xl font-bold leading-[.92] sm:text-6xl lg:text-7xl">Start with one problem. Solve it properly.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#cbc7be]">
-              ClearRoad Bahamas is being built around a simple idea: give Bahamian properties and work sites a practical mechanical option for keeping paved areas cleaner.
-            </p>
-          </div>
-          <img src={media.dzeroWhite} alt="Compact street sweeper representing ClearRoad Bahamas planned equipment category" className="sweeper-float min-h-[360px] w-full object-contain" />
-        </div>
-      </section>
+    <section className="relative min-h-[620px] overflow-hidden bg-[#071724] text-white">
+      <img src={media.heroNassau} alt="Illustrative Nassau-style street sweeping scene" className="absolute inset-0 h-full w-full object-cover"/>
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,23,36,.96),rgba(7,23,36,.75)_58%,rgba(7,23,36,.25))]"/>
+      <div className="content-container relative flex min-h-[620px] items-center py-16">
+        <div className="max-w-3xl"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">About StreetSweeper Bahamas</p><h1 className="mt-5 text-6xl font-bold leading-[.86] sm:text-8xl">START WITH ONE VISIBLE PROBLEM.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-[#D4DFE4]">Give Nassau businesses, contractors and communities a practical mechanical option for keeping paved areas cleaner.</p></div>
+      </div>
+    </section>
 
-      <section className="bg-[#f2eee5] py-16 sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#8a6b08]">The business</p>
-            <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Street sweeping first. Broader municipal cleaning later.</h2>
-          </div>
-          <div className="grid gap-6 text-lg leading-8 text-[#595852]">
-            <p>
-              ClearRoad is starting with mechanical street and property sweeping for commercial sites, construction access routes, private roads, communities and event areas across New Providence.
-            </p>
-            <p>
-              The long-term direction is broader commercial and municipal cleaning: more capable sweeping equipment and adjacent services where they solve a real operating problem. The launch remains focused. One clear service. One market to prove.
-            </p>
-          </div>
-        </div>
-      </section>
+    <section className="bg-[#F3EFE6] py-20 text-[#071724] sm:py-24">
+      <div className="content-container grid gap-12 lg:grid-cols-[.65fr_1.35fr]">
+        <div><p className="text-xs font-black uppercase tracking-[.2em] text-[#FF6038]">The idea</p><h2 className="mt-4 text-5xl font-bold leading-[.9] sm:text-7xl">Street sweeping first. Earn the right to expand.</h2></div>
+        <div className="space-y-6 text-lg leading-8 text-[#4B5A63]"><p>The launch is intentionally focused: mechanical sweeping for commercial sites, construction access routes, private roads, communities and event areas across New Providence.</p><p>The longer-term opportunity is broader commercial and municipal cleaning, but the first job is simpler — prove that one machine can solve a real problem repeatedly and reliably.</p></div>
+      </div>
+    </section>
 
-      <section className="bg-[#171919] py-16 text-white sm:py-20">
-        <div className="content-container grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
-          <div className="relative overflow-hidden bg-accent p-8 text-[#171919] sm:p-10">
-            <span className="text-xs font-bold uppercase tracking-[.18em]">Founder</span>
-            <div className="mt-10 text-7xl font-bold leading-none sm:text-8xl">AP</div>
-            <p className="mt-6 text-2xl font-bold">Amar Pearson</p>
-            <p className="mt-2 max-w-sm text-sm leading-6">
-              Founder-led from Nassau, with the business being developed around practical service delivery, commercial relationships and disciplined execution.
-            </p>
-          </div>
-          <div>
-            <p className="text-eyebrow">Why build it this way</p>
-            <h2 className="mt-4 text-4xl font-bold sm:text-5xl">The machine is leverage. The company is the product.</h2>
-            <p className="mt-5 max-w-2xl leading-7 text-[#c8c4bc]">
-              Buying a sweeper is easy. Building a dependable service around scheduling, site assessment, equipment fit, maintenance and repeat customers is the actual business.
-            </p>
-            <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-6 text-sm">
-              <MapPin className="h-4 w-4 text-accent" />
-              <span>{company.serviceArea}</span>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="bg-[#071724] py-20 text-white sm:py-24">
+      <div className="content-container grid overflow-hidden rounded-[32px] bg-[#FF6038] lg:grid-cols-[.78fr_1.22fr]">
+        <div className="p-8 sm:p-10 lg:p-12"><p className="text-xs font-black uppercase tracking-[.2em] text-[#F4C84A]">Founder-led</p><div className="mt-10 text-8xl font-bold leading-none">AP</div><p className="mt-6 text-3xl font-bold">Amar Pearson</p><p className="mt-4 max-w-md leading-7 text-white/85">StreetSweeper Bahamas is being developed from Nassau around practical service delivery, commercial relationships and disciplined expansion.</p></div>
+        <div className="bg-[#0D2639] p-8 sm:p-10 lg:p-12"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Operating principle</p><h2 className="mt-4 text-5xl font-bold leading-[.9]">The machine is leverage. The service is the business.</h2><p className="mt-6 leading-7 text-[#B8C8D0]">Equipment alone does not create a dependable company. The actual work is choosing the right sites, maintaining the machine, scheduling well, communicating clearly and earning repeat contracts.</p><div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-6 text-sm"><MapPin className="h-4 w-4 text-[#12CFC0]"/>{company.serviceArea}</div></div>
+      </div>
+    </section>
 
-      <section className="bg-[#dbe6e4] py-16 sm:py-20">
-        <div className="content-container grid gap-8 lg:grid-cols-3">
-          {[
-            ["Focused launch", "Start with street sweeping and prove demand before adding more equipment or services."],
-            ["Clear communication", "Make it easy for a property manager or contractor to understand what is being quoted and when it will happen."],
-            ["Built to scale", "Use recurring routes and repeat commercial work to justify the next machine rather than buying ahead of demand."],
-          ].map(([title, copy], i) => (
-            <article key={title} className="border-t-4 border-[#171919] bg-white/55 p-6">
-              <span className="text-xs font-bold text-[#516664]">0{i + 1}</span>
-              <h3 className="mt-8 text-2xl font-bold">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#4c5b59]">{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-accent py-16 text-[#171919]">
-        <div className="content-container flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="text-5xl font-bold">Have a property or work site to assess?</h2>
-            <p className="mt-4 max-w-2xl">Tell us the location, surface and preferred schedule. We will review whether the planned equipment fits the job.</p>
-          </div>
-          <Link to="/request-assessment" className="inline-flex shrink-0 items-center gap-2 bg-[#171919] px-6 py-4 font-bold text-white">
-            Request a Site Assessment <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-    </PageLayout>
-  );
+    <section className="bg-[#12CFC0] py-20 text-[#071724] sm:py-24"><div className="content-container flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-black uppercase tracking-[.2em]">Have a site in mind?</p><h2 className="mt-4 max-w-3xl text-6xl font-bold leading-[.88] sm:text-7xl">LET'S SEE IF SWEEPING FITS IT.</h2></div><Link to="/request-assessment" className="inline-flex min-h-14 shrink-0 items-center gap-2 rounded-full bg-[#071724] px-7 font-black text-white">Request a Sweep <ArrowRight className="h-4 w-4"/></Link></div></section>
+  </PageLayout>
 }
