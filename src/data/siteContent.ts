@@ -1,4 +1,7 @@
 export const media = {
+  heroNassau: "/images/generated/hero-nassau.jpg",
+  beforeNassau: "/images/generated/nassau-before.jpg",
+  afterNassau: "/images/generated/nassau-after.jpg",
   dzeroWhite: "https://www.dulevo.com/media/tpqh2vev/foto-prodotto.png",
   dzeroRed: "https://www.dulevo.com/media/3mcgp2n3/d-zero2s3.png",
   dulevo850: "https://www.dulevo.com/media/542j4lkj/microsoftteams-image.png",
@@ -10,38 +13,18 @@ export const video = {
 };
 
 export const services = [
-  {
-    title: "Commercial Properties",
-    copy: "Keep parking lots, entrances, loading areas and service roads cleaner without relying only on manual sweeping.",
-    phrase: "commercial street sweeping Nassau",
-  },
-  {
-    title: "Construction Sites",
-    copy: "Clear loose dirt, sand and aggregate from paved access routes and surrounding surfaces.",
-    phrase: "construction site sweeping Bahamas",
-  },
-  {
-    title: "Roads & Communities",
-    copy: "Schedule sweeping for private roads, developments, shared curbs and common paved areas.",
-    phrase: "private road sweeping Nassau",
-  },
-  {
-    title: "Events & Venues",
-    copy: "Prepare and restore parking areas, routes and entrances before or after large gatherings.",
-    phrase: "event cleanup Nassau",
-  },
-  {
-    title: "Post-Storm Cleanup",
-    copy: "Review and clear unexpected surface debris where compact sweeping equipment is suitable.",
-    phrase: "road debris cleanup Bahamas",
-  },
+  { title: "Commercial Properties", copy: "Parking lots, shopping centres, hotels, warehouses and business compounds.", phrase: "commercial street sweeping Nassau" },
+  { title: "Construction Sites", copy: "Paved access roads and surrounding surfaces affected by tracked dirt, sand and aggregate.", phrase: "construction site sweeping Bahamas" },
+  { title: "Roads & Communities", copy: "Private roads, developments, shared curbs and common paved areas.", phrase: "private road sweeping Nassau" },
+  { title: "Events & Venues", copy: "Parking areas, routes and entrances before or after large gatherings.", phrase: "event cleanup Nassau" },
+  { title: "Post-Storm Cleanup", copy: "Selected paved areas affected by loose surface debris after severe weather.", phrase: "road debris cleanup Bahamas" },
 ];
 
 export const benefits = [
-  ["Cleaner customer areas", "Make entrances, parking lots and arrival areas easier to keep presentable."],
-  ["Faster large-area cleanup", "Mechanical sweeping covers paved areas more efficiently than manual sweeping alone."],
-  ["Better site control", "Remove loose material tracked onto construction entrances and surrounding paved routes."],
-  ["Flexible scheduling", "Plan one-time, recurring, daytime or off-hour service around the property."],
+  ["Cleaner first impressions", "Keep entrances, parking lots and arrival areas looking maintained."],
+  ["More ground covered", "Mechanical sweeping tackles larger paved areas more efficiently than manual sweeping alone."],
+  ["Construction support", "Clear tracked dirt, sand and loose aggregate from site entrances and nearby paved routes."],
+  ["Flexible scheduling", "Plan one-time, recurring, daytime or off-hour sweeping around your property."],
 ];
 
 export const equipmentCapabilities = [
