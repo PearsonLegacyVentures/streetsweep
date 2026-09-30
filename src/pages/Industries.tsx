@@ -12,9 +12,17 @@ export default function Industries(){
     <Seo title="Street Sweeping for Bahamian Properties | StreetSweeper Bahamas" description="Street sweeping for construction, commercial properties, hotels, communities, public works and events across New Providence." />
 
     <section className="bg-[#071724] py-20 text-white sm:py-24">
-      <div className="content-container grid gap-10 lg:grid-cols-[.7fr_1.3fr] lg:items-end">
-        <div><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Industries</p><h1 className="mt-4 text-6xl font-bold leading-[.86] sm:text-8xl">WHERE CLEAN PAVEMENT MATTERS.</h1></div>
-        <p className="max-w-2xl text-lg leading-8 text-[#B8C8D0]">For the teams responsible for entrances, parking lots, access roads, shared streets and public-facing outdoor spaces.</p>
+      <div className="content-container grid gap-10 lg:grid-cols-[.68fr_1.32fr] lg:items-center">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Industries</p>
+          <h1 className="mt-4 text-6xl font-bold leading-[.86] sm:text-8xl">WHERE CLEAN PAVEMENT MATTERS.</h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-[#B8C8D0]">For the teams responsible for entrances, parking lots, access roads, shared streets and public-facing outdoor spaces.</p>
+        </div>
+        <div className="relative min-h-[430px] overflow-hidden rounded-[32px]">
+          <img src={media.actionStreet} alt="Compact street sweeper operating beside buildings" className="absolute inset-0 h-full w-full object-cover"/>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071724]/70 via-transparent to-transparent"/>
+          <span className="absolute left-5 top-5 rounded-full bg-[#071724]/90 px-4 py-2 text-[10px] font-black uppercase tracking-[.18em]">Manufacturer action reference</span>
+        </div>
       </div>
     </section>
 
@@ -30,8 +38,8 @@ export default function Industries(){
 
     <section className="bg-[#071724] py-20 text-white sm:py-24">
       <div className="content-container grid overflow-hidden rounded-[32px] bg-[#0E2638] lg:grid-cols-2">
-        <div className="relative min-h-[440px]"><img src={media.heroNassau} alt="Illustrative street sweeper operating in a Nassau-style environment" className="absolute inset-0 h-full w-full object-cover"/></div>
-        <div className="p-8 sm:p-10 lg:p-12"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Local context</p><h2 className="mt-4 text-5xl font-bold leading-[.9]">Sand. Traffic. Construction. Outdoor properties.</h2><p className="mt-6 leading-7 text-[#B8C8D0]">The use cases are different, but the basic need is the same: keep paved areas under control without waiting until the buildup becomes the first thing people notice.</p><Link to="/request-assessment" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#FF6038] px-5 text-sm font-black">Request a Sweep <ArrowRight className="h-4 w-4"/></Link><p className="mt-5 text-[10px] leading-4 text-[#718995]">Illustrative service visualization, not completed client work.</p></div>
+        <div className="relative min-h-[440px]"><img src={media.heroAction} alt="Compact street sweeper operating on a paved route" className="absolute inset-0 h-full w-full object-cover"/></div>
+        <div className="p-8 sm:p-10 lg:p-12"><p className="text-xs font-black uppercase tracking-[.2em] text-[#12CFC0]">Local context</p><h2 className="mt-4 text-5xl font-bold leading-[.9]">Sand. Traffic. Construction. Outdoor properties.</h2><p className="mt-6 leading-7 text-[#B8C8D0]">The use cases are different, but the basic need is the same: keep paved areas under control without waiting until the buildup becomes the first thing people notice.</p><Link to="/request-assessment" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#FF6038] px-5 text-sm font-black">Request a Sweep <ArrowRight className="h-4 w-4"/></Link><p className="mt-5 text-[10px] leading-4 text-[#718995]">Manufacturer photography shown as an equipment reference, not completed StreetSweeper Bahamas client work.</p></div>
       </div>
     </section>
   </PageLayout>
